@@ -30,15 +30,15 @@ mkdir -p ${wd}/finemapping/output
 #	--covar-variance-standardize \
 #	--parameters ${covarParam} \
 #	--ci 0.95 \
-#	--allow-no-sex \
+#	--allow-no-sex \#	--out ${wd}/assocResults/pm10 \
 #	--out ${wd}/assocResults/pm10 \
 #	--threads 20
 #fi
 
 # output : ${wd}/assocResults/pm10.${pheno}.glm.linear
 
-#fgrep ADDxPM10 ${wd}/assocResults/pm10.${pheno}.glm.linear |  awk '$14<1e-05 {print $0}' > ${wd}/assocResults/pm10.${pheno}.glm.linear.1e-05
-#sh ~/codes/GWAS/annovar.sh ${wd}/assocResults/pm10.${pheno}.glm.linear.1e-05 ${wd}/assocResults 
+fgrep ADDxPM10 ${wd}/assocResults/pm10.${pheno}.glm.linear |  awk '$14<1e-05 {print $0}' > ${wd}/assocResults/pm10.${pheno}.glm.linear.1e-05
+sh ~/codes/GWAS/annovar.sh ${wd}/assocResults/pm10.${pheno}.glm.linear.1e-05 ${wd}/assocResults 
 
 # 02. Create a munged summary statistics file in a PolyFun-friendly parquet format
 #echo -e 'Preparing Finemapping'
